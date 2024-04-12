@@ -44,7 +44,6 @@ export default function Layout({
   useEffect(() => {
     setIndivisualNoteTitle(selectedNote?.title);
   }, [selectedNote]);
-
   return (
     <div className="flex">
       <aside className="flex flex-col p-3 justify-between h-dvh border-r-2 max-sm:hidden">
@@ -131,6 +130,7 @@ export default function Layout({
             onClick={async () => {
               await doSignOut();
             }}
+            className={`${!isHome && "hidden"}`}
           >
             Log out
           </Button>

@@ -56,13 +56,14 @@ export function DeleteNotesDialog({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <Button
+            className="m-1"
             onClick={() => {
               setDeleteNoteModelTrigger(false);
             }}
           >
             cancel
           </Button>
-          <Button variant={"destructive"} onClick={deleteItem}>
+          <Button variant={"destructive"} className="m-1" onClick={deleteItem}>
             Delete
           </Button>
         </AlertDialogFooter>

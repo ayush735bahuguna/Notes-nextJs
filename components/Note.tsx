@@ -67,7 +67,7 @@ export default function Note({
           />
         )}
         <div
-          className="text-slate-500 dark:text-slate-400 mt-1 whitespace-break-spaces overflow-clip"
+          className="text-slate-500 dark:text-slate-400 mt-1 whitespace-break-spaces overflow-clip pb-2"
           onClick={() => {
             setSelectedNote(note);
             router.push(`/Home/${note.id}`);
