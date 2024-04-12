@@ -36,6 +36,9 @@ export default function Page(): React.JSX.Element {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [deleteNoteModelTrigger, setDeleteNoteModelTrigger] =
     useState<boolean>(false);
+  const notesContainerStyle: string = !GridLayout
+    ? "columns-1"
+    : `lg:columns-3 sm:columns-2 max-sm:columns-1 ps-1`;
 
   const fetchNotes = async () => {
     setLoading(true);
@@ -132,22 +135,20 @@ export default function Page(): React.JSX.Element {
                   </div>
                 ) : (
                   <React.Fragment>
-                    <div
-                      className={`flex ${
-                        GridLayout ? "flex-row" : "flex-col"
-                      } flex-wrap my-2 pb-4`}
-                    >
+                    <div className={notesContainerStyle}>
                       {SearchedNotes?.map((note: noteType, i: number) => {
                         return (
-                          <Note
-                            key={i}
-                            note={note}
-                            index={i}
-                            setDeleteNoteModelTrigger={
-                              setDeleteNoteModelTrigger
-                            }
-                            setDeleteNoteId={setDeleteNoteId}
-                          />
+                          <div className="break-inside-avoid">
+                            <Note
+                              key={i}
+                              note={note}
+                              index={i}
+                              setDeleteNoteModelTrigger={
+                                setDeleteNoteModelTrigger
+                              }
+                              setDeleteNoteId={setDeleteNoteId}
+                            />
+                          </div>
                         );
                       })}
                     </div>
@@ -159,34 +160,27 @@ export default function Page(): React.JSX.Element {
                 {pinnedNotes.length !== 0 && (
                   <React.Fragment>
                     <p className="m-2 text-muted-foreground">Pinned notes</p>
-                    <div
-                      className={`flex ${
-                        GridLayout ? "flex-row" : "flex-col"
-                      } flex-wrap my-2 border-b-2 pb-4`}
-                    >
+                    <div className={`${notesContainerStyle} border-b-2`}>
                       {pinnedNotes?.map((note: noteType, i: number) => {
-                        // console.log(e, "pinnedNotes");
                         return (
-                          <Note
-                            key={i}
-                            note={note}
-                            index={i}
-                            setDeleteNoteModelTrigger={
-                              setDeleteNoteModelTrigger
-                            }
-                            setDeleteNoteId={setDeleteNoteId}
-                          />
+                          <div className="break-inside-avoid">
+                            <Note
+                              key={i}
+                              note={note}
+                              index={i}
+                              setDeleteNoteModelTrigger={
+                                setDeleteNoteModelTrigger
+                              }
+                              setDeleteNoteId={setDeleteNoteId}
+                            />
+                          </div>
                         );
                       })}
                     </div>
                   </React.Fragment>
                 )}
 
-                <div
-                  className={`flex ${
-                    GridLayout ? "flex-row" : "flex-col"
-                  } flex-wrap py-3`}
-                >
+                <div className={notesContainerStyle}>
                   {notes.length === 0 ? (
                     <div className="flex items-center justify-center w-full mt-10">
                       No notes{" "}
@@ -195,15 +189,17 @@ export default function Page(): React.JSX.Element {
                     <>
                       {notes.map((note: noteType, i: number) => {
                         return (
-                          <Note
-                            key={i}
-                            note={note}
-                            index={i}
-                            setDeleteNoteModelTrigger={
-                              setDeleteNoteModelTrigger
-                            }
-                            setDeleteNoteId={setDeleteNoteId}
-                          />
+                          <div className="break-inside-avoid">
+                            <Note
+                              key={i}
+                              note={note}
+                              index={i}
+                              setDeleteNoteModelTrigger={
+                                setDeleteNoteModelTrigger
+                              }
+                              setDeleteNoteId={setDeleteNoteId}
+                            />
+                          </div>
                         );
                       })}
                     </>

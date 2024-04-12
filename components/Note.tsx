@@ -48,12 +48,6 @@ export default function Note({
             : "hover:border-indigo-600 dark:hover:border-indigo-600 border-indigo-200 hover:bg-sky-50/70"
         } `}
       >
-        {!note.pinned && (
-          <span className="text-5xl font-bold text-slate-300 absolute -bottom-1 left-0">
-            {index + 1}
-          </span>
-        )}
-
         <h4 className="text-2xl capitalize ">{note.title}</h4>
         {!note.pinned ? (
           <Pin
