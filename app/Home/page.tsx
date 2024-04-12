@@ -138,9 +138,8 @@ export default function Page(): React.JSX.Element {
                     <div className={notesContainerStyle}>
                       {SearchedNotes?.map((note: noteType, i: number) => {
                         return (
-                          <div className="break-inside-avoid">
+                          <div className="break-inside-avoid" key={i}>
                             <Note
-                              key={i}
                               note={note}
                               index={i}
                               setDeleteNoteModelTrigger={
@@ -163,9 +162,8 @@ export default function Page(): React.JSX.Element {
                     <div className={`${notesContainerStyle} border-b-2`}>
                       {pinnedNotes?.map((note: noteType, i: number) => {
                         return (
-                          <div className="break-inside-avoid">
+                          <div className="break-inside-avoid" key={i}>
                             <Note
-                              key={i}
                               note={note}
                               index={i}
                               setDeleteNoteModelTrigger={
@@ -189,9 +187,8 @@ export default function Page(): React.JSX.Element {
                     <>
                       {notes.map((note: noteType, i: number) => {
                         return (
-                          <div className="break-inside-avoid">
+                          <div className="break-inside-avoid" key={i}>
                             <Note
-                              key={i}
                               note={note}
                               index={i}
                               setDeleteNoteModelTrigger={
